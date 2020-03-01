@@ -2,7 +2,9 @@ package com.goodluck2u.gl2u.dao;
 
 import com.goodluck2u.gl2u.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
+@Repository
 @Mapper
 public interface UserMapper {
     /**
