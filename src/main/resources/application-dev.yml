@@ -3,8 +3,8 @@ server:
 
 spring:
   datasource:
-    username: myj
-    password: Ma-971216
+    username: ENC(qLJv2pcjOBluxq8IUBNRJw==)
+    password: ENC(ZI8tmiizROHZ6N+oWE4KZIo+Of4xqiar)
     url: jdbc:mysql://rm-bp1du4529c71q63cslo.mysql.rds.aliyuncs.com:3306/goodluck2u
     driver-class-name: com.mysql.jdbc.Driver
 
@@ -16,6 +16,11 @@ logging:
   config: classpath:log4jConfig.xml
   level:
     cn.jay.repository: trace
+
+#jasypt加密的密匙
+jasypt:
+  encryptor:
+    password: myj@2020
 
 ##showSql
 #logging:
