@@ -58,7 +58,7 @@
         </javaClientGenerator>
 
 
-        <table tableName="user_info" domainObjectName="User"
+        <table tableName="stock" domainObjectName="Stock"
                enableInsert="true" enableSelectByPrimaryKey="true"
                enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
                enableCountByExample="false" enableUpdateByExample="false"

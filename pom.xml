@@ -69,6 +69,23 @@
 			<version>1.46</version>
 		</dependency>
 
+		<!--引入时序数据库 -->
+		<dependency>
+			<groupId>org.influxdb</groupId>
+			<artifactId>influxdb-java</artifactId>
+			<version>2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.4</version>
+		</dependency>
+
 
 		<dependency> <!-- 引入log4j2依赖 -->
 			<groupId>org.springframework.boot</groupId>

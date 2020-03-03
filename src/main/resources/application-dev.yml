@@ -8,6 +8,12 @@ spring:
     url: jdbc:mysql://rm-bp1du4529c71q63cslo.mysql.rds.aliyuncs.com:3306/goodluck2u
     driver-class-name: com.mysql.jdbc.Driver
 
+  influx:
+    url: http://127.0.0.1:8086
+    user: myj
+    password: myj123
+    database: stock
+
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.goodluck2u.gl2u.entity
