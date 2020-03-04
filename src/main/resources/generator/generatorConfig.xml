@@ -58,11 +58,17 @@
         </javaClientGenerator>
 
 
+        <table tableName="user_stock_trade_log" domainObjectName="UserStockTradeLog"
+               enableInsert="true" enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false" />
         <table tableName="stock" domainObjectName="Stock"
                enableInsert="true" enableSelectByPrimaryKey="true"
                enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"
                enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false" />
 
     </context>

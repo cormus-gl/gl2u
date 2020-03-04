@@ -1,14 +1,17 @@
 package com.goodluck2u.gl2u.common;
 
+import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.goodluck2u.gl2u.entity.StockPriceDetail;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.beanutils.BeanUtils;
 import org.influxdb.InfluxDB;
 import org.influxdb.InfluxDBFactory;
 import org.influxdb.dto.Point;
 import org.influxdb.dto.Query;
+import org.influxdb.dto.QueryResult;
 
-import java.util.Date;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Data
@@ -47,8 +50,34 @@ public class InfluxDBUtil {
         return influxDB;
     }
 
-    public void getStockPriceList(){
+    public List<StockPriceDetail> getStockPriceList(String sql){
+        Query query = new Query(sql,database);
+        QueryResult queryResult = influxDB.query(query, TimeUnit.MINUTES);
+        List<QueryResult.Result> resultList =  queryResult.getResults();
 
+        List<StockPriceDetail> stockPriceDetails = new ArrayList<>();
+        for (QueryResult.Result result : resultList) {
+            List<QueryResult.Series> seriesList = result.getSeries();
+            for (QueryResult.Series series : seriesList) {
+                StockPriceDetail stockPriceDetail = new StockPriceDetail();
+                List<String> keys = series.getColumns();
+                List<List<Object>> values = series.getValues();
+                for (List<Object> value : values){
+                    Map<String, String> beanMap = new HashMap<>();
+                    for (int i = 0; i < keys.size(); i++) {
+                        beanMap.put(keys.get(i), (String) value.get(i));
+                    }
+                    try {
+                        BeanUtils.populate(stockPriceDetail, beanMap);
+                    } catch (Exception e){
+                        log.error(String.format("influx data select error %s", e));
+                    }
+                    stockPriceDetails.add(stockPriceDetail);
+                }
+            }
+
+        }
+        return stockPriceDetails;
     }
 
     public void insertStockData(){

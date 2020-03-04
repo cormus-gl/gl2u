@@ -10,6 +10,9 @@ public class StockPriceDetail {
 
     private Date currentTime;
 
+    public StockPriceDetail() {
+    }
+
     public StockPriceDetail(String stockNum, double price, Date currentTime) {
         this.stockNum = stockNum;
         this.price = price;

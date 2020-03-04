@@ -22,7 +22,7 @@ public class InfluxDBConfig {
 
 
     @Bean
-    public InfluxDBUtil influxDbUtils() {
+    public InfluxDBUtil getInfluxDB() {
         return new InfluxDBUtil(user, password, influxUrl, database, "");
     }
 }
